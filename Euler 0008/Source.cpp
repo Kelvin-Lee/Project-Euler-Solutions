@@ -2,20 +2,27 @@
 #include <string>
 #include <typeinfo>
 
-/* Things you learned here:
- * - Something about std::stringstream, and how it's a safer
- *   method for reading in individual chars from a string
- *   stream?
- * - the "int n_num = c_char - '0'" method seems to be safe
- *   due to something along the lines of everyone using
- *   ASCII? And not Unicode?
- * - needed long long! because of how big it could get :0
-*/
-
-
 long long multNextNChar(int index, int n, std::string s);
 
 int main() {
+
+	/*     PROBLEM TITLE : " Largest product in a series "
+
+	   PROBLEM STATEMENT : " The four adjacent digits in the 
+							 1000 - digit number that have the 
+							 greatest product are 9 × 9 × 8 × 9 
+							 = 5832.
+
+							 [ ... ]
+
+			     			 Find the thirteen adjacent digits in
+							 the 1000 - digit number that have the 
+							 greatest product.What is the value 
+							 of this product ? "
+
+			    SOLUTION : " 23514624000 "
+
+	*/
 
 	std::string s_number =
 		"73167176531330624919225119674426574742355349194934"
@@ -41,15 +48,21 @@ int main() {
 
 	std::cout << "How many factors?";
 	int temp;
-	std::cin >>temp;
+	std::cin >> temp;
 	const int n_of_factors(temp);
-
-
-	long long curr = 0;
+	
 	long long max = 0;
 
 	for (int i = 0; i < s_number.size() - n_of_factors; i++) {
-		curr = multNextNChar(i, n_of_factors, s_number);
+
+		long long curr = 1;
+
+		for (int k = 0; k < n_of_factors; k++) {
+
+			curr *= s_number.at(i + k) - '0';
+
+		}
+
 		if (curr > max) {
 			max = curr;
 		}
@@ -61,25 +74,9 @@ int main() {
 
 }
 
-long long multNextNChar(int index, int n, std::string s) {
-	long long product = 1;
+/* NOTES:
 
-	for (int i = 0; i < n; i++) {
-		int j = index + i;
+  - Brute force approach.
 
-		if (j > s.size() - 1) {
-			std::cout << "UH OH" << std::endl;
-			break;
-		}
-		else {
-			product *= s.at(index + i) - '0';
-		}
-	}
-
-	if (product > pow(10, n))
-	{
-		return -1;
-	}
-
-	return product;
-}
+  */
+  
