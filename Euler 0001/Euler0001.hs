@@ -1,1 +1,1 @@
-euler0001 = sum [x | x <- [1..1000], mod x 3 == 0, mod x 5 == 0]
+euler0001 = sum [x | x <- [1..999, mod x 3 == 0 || mod x 5 == 0]
