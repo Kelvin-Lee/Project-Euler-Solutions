@@ -1,0 +1,33 @@
+/*
+PROBLEM NUMBER: 9
+
+PROBLEM TITLE: "Special Pythagorean triplet"
+
+PROBLEM STATEMENT:
+
+"A Pythagorean triplet is a set of three natural 
+numbers, a < b < c, for which a^2 + b^2 = c^2.
+
+For example, 32 + 42 = 9 + 16 = 25 = 52.
+
+There exists exactly one Pythagorean triplet 
+for which a + b + c = 1000. Find the product abc."
+
+SOLUTION: " 31875000 "
+
+*/
+
+
+// This one can be solved without the aid of programming. 
+// If we can find a pythagorean triplet {x, y, z} such that
+// (x + y + z) divides 1000, then we can simply multiple the
+// three numbers by the appropriate factor, and use those to
+// find the desired product.
+
+// Although finding the triplets could be its own exercise,
+// through research or memorization, we can recognize that
+// 8, 15, and 17 make up a pythagorean triplet. Their sum
+// is 40. Because 1000/40 = 25, then our desired pythgorean
+// triplet is (8 * 25), (15 * 25), and (17 * 25).
+
+// The product of this is (25^3)*(8)*(15)*(17) = 31875000.
